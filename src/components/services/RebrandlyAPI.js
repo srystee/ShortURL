@@ -1,7 +1,7 @@
 class RebrandlyApi{
     static baseUrl='https://api.rebrandly.com/v1'
     static get(path,params){
-        const url=rebrandlyApi.baseUrl+path;
+        const url=RebrandlyApi.baseUrl+path;
         const apikey=sessionStorage.getItem("apikey")|| params.headers.apikey;
         return fetch(url,{
             headers:{
