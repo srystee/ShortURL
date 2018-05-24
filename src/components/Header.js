@@ -28,7 +28,7 @@ class Header extends Component{
                 <MenuItem><Link to= "/link">Links</Link></MenuItem>
                 <MenuItem><Link to="/Create link">Create Link</Link></MenuItem>
                 <MenuItem><Link to="/Link Edit">Edit Link</Link></MenuItem>
-                <MenuItem><Link to="/Delete Link">Delete Link</Link></MenuItem>
+                
 
                 </Drawer>
                 </div>
