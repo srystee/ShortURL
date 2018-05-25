@@ -7,6 +7,8 @@ import EditIcon from 'material-ui/svg-icons/image/edit';
 import DeleteIcon from 'material-ui/svg-icons/action/delete';
 import IconButton from 'material-ui/IconButton';
 
+import {connect}from 'react-redux';
+
 class RebrandlyLinks extends Component{
     constructor(props){
         super(props)
@@ -31,9 +33,9 @@ class RebrandlyLinks extends Component{
 
                     <TableBody displayRowCheckbox={false}>
                     {
-                        this.state.links.map((link,index) => {
+                        this.props.list.map(link => {
                             return(
-                                <TableRow key={link.id}selectable={false}>
+                                <TableRow key={link.id}>
                                     <TableRowColumn>{link.title}</TableRowColumn>
                                     <TableRowColumn>{link.destination}</TableRowColumn>
                                     <TableRowColumn>{link.shortUrl}</TableRowColumn>
@@ -55,10 +57,10 @@ class RebrandlyLinks extends Component{
              </div>
         )
     }
-    componentWillMount()
-    {
-       this.linklist()
-    }
+   // componentWillMount()
+   // {
+    //   this.linklist()
+   // }
     linklist(){
         const apikeysession=sessionStorage.getItem('apikey')
         debugger
@@ -104,5 +106,13 @@ class RebrandlyLinks extends Component{
         })
     }
 }
+    function mapStateToProps (state) {
+        return({
+            list:state.linkReducer
+        })
+        
+    }
 
-export default RebrandlyLinks;
+
+
+export default connect(mapStateToProps)(RebrandlyLinks);
